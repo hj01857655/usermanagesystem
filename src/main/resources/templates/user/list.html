@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>用户管理</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/css/layui.css">
+    <link rel="stylesheet" href="/layuiadmin/layui/css/layui.css">
     <style>
         .layui-container {
             margin-top: 20px;
@@ -104,10 +104,10 @@
         </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/layui.js" ></script>
+    <script src="/layuiadmin/layui/layui.js"></script>
     <script type="text/javascript">
-        layui.use(['layer', 'form'], function(){
+        layui.use(['jquery', 'layer', 'form'], function(){
+            var $ = layui.jquery;
             var layer = layui.layer;
             var form = layui.form;
 

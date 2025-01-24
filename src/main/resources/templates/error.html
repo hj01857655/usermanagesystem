@@ -1,24 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>错误页面</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/css/layui.css">
+    <link href="/layuiadmin/layui/css/layui.css" rel="stylesheet">
 </head>
 <body>
-    <div class="layui-container" style="margin-top: 50px;">
-        <div class="layui-row">
-            <div class="layui-col-md-offset3 layui-col-md6">
-                <div class="layui-card">
-                    <div class="layui-card-header">错误</div>
-                    <div class="layui-card-body">
-                        <p>发生了一个错误，请稍后再试。</p>
-                        <a href="/" class="layui-btn layui-btn-primary">返回首页</a>
-                    </div>
+<div class="layui-container" style="margin-top: 50px;">
+    <div class="layui-row">
+        <div class="layui-col-md-offset3 layui-col-md6">
+            <div class="layui-card">
+                <div class="layui-card-header">错误</div>
+                <div class="layui-card-body">
+                    <p>发生了一个错误，请稍后再试。</p>
+                    <a class="layui-btn layui-btn-primary" href="/">返回首页</a>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/layui.js"></script>
+</div>
+<script src="/layuiadmin/layui/layui.js"></script>
+<script>
+    layui.use(['jquery'], function () {
+        var $ = layui.jquery;
+        // 这里可以使用 jQuery 进行操作
+    });
+</script>
 </body>
 </html> 

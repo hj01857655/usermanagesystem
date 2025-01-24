@@ -1,13 +1,14 @@
 package com.example.usermanagesystem.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
@@ -16,8 +17,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @TableName("users")
 public class User {
-    @TableId(value = "id")
-    private int id;
+    @TableId(value = "id", type = IdType.AUTO)
+    private Integer id;
 
     @NotBlank(message = "用户名不能为空")
     @Size(min = 5, message = "用户名至少得5个字符")

@@ -18,17 +18,19 @@ spring:
     resources:
       static-locations: classpath:/static/,classpath:/templates/,classpath:/resources/
 
+  main:
+    allow-bean-definition-overriding: true
   devtools:
     livereload:
       enabled: true
+      port: 35729
   mvc:
+    static-path-pattern: /static/**
     view:
       prefix: /templates/
       suffix: .html
-
   jpa:
-    hibernate:
-      ddl-auto: update
+    open-in-view: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
@@ -37,7 +39,9 @@ spring:
         use_sql_comments: true
         jdbc:
           time_zone: UTC
-    open-in-view: true
+  messages:
+    basename: i18n.messages
+    encoding: utf-8
 
 
 
