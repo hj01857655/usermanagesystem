@@ -1,0 +1,49 @@
+spring:
+  message:
+    source:
+      language: zh_CN
+      encoding: UTF-8
+  application:
+    name: usermanagesystem
+  datasource:
+    url: jdbc:mysql://localhost:3306/usermanage_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 600000
+  thymeleaf:
+    cache: false
+  web:
+    resources:
+      static-locations: classpath:/static/,classpath:/templates/,classpath:/resources/
+  mvc:
+    favicon:
+      enabled: false
+  devtools:
+    livereload:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: none
+  logging:
+    level:
+      org.hibernate.SQL: DEBUG
+      org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  type-aliases-package: com.example.demo.entity
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
