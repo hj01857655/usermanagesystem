@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>错误页面</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/css/layui.css">
+    <link rel="stylesheet" href="/layui/css/layui.css">
 </head>
 <body>
     <div class="layui-container" style="margin-top: 50px;">
@@ -19,6 +19,12 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/layui.js"></script>
+    <script src="/layui/layui.js"></script>
+    <script>
+        layui.use(['jquery'], function(){
+            var $ = layui.jquery;
+            // 这里可以使用 jQuery 进行操作
+        });
+    </script>
 </body>
 </html> 
