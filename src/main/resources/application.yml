@@ -2,7 +2,7 @@ spring:
   application:
     name: usermanagesystem
   datasource:
-    url: jdbc:mysql://localhost:3306/usermanage_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/usermanager_db?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -21,15 +21,24 @@ spring:
   devtools:
     livereload:
       enabled: true
-  jpa:
-    hibernate:
-      ddl-auto: none
   mvc:
     view:
       prefix: /templates/
       suffix: .html
-  messages:
-    encoding: UTF-8
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        format_sql: true
+        show_sql: true
+        use_sql_comments: true
+        jdbc:
+          time_zone: UTC
+    open-in-view: true
+
 
 
 

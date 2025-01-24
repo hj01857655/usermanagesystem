@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>用户管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/css/layui.css">
+    <style>
+        .layui-container {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layui-container">
+        <h1>用户管理</h1>
+        <button class="layui-btn layui-btn-normal" onclick="openAddUserModal()">添加用户</button>
+        <table class="layui-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>用户名</th>
+                    <th>邮箱</th>
+                    <th>手机</th>
+                    <th>创建时间</th>
+                    <th>更新时间</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="user : ${users}">
+                    <td th:text="${user.id}"></td>
+                    <td th:text="${user.username}"></td>
+                    <td th:text="${user.email}"></td>
+                    <td th:text="${user.mobile}"></td>
+                    <td th:text="${user.createTime}"></td>
+                    <td th:text="${user.updateTime}"></td>
+                    <td>
+                        <button class="layui-btn layui-btn-sm" th:attr="onclick='openEditUserModal(' + ${user.id} + ', \'' + ${user.username} + '\', \'' + ${user.email} + '\', \'' + ${user.mobile} + '\')'">编辑</button>
+                        <button class="layui-btn layui-btn-danger layui-btn-sm" th:attr="onclick='deleteUser(' + ${user.id} + ')'">删除</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="layui-form" style="display: none; padding: 20px;">
+        <form class="layui-form" action="/user/add" method="post">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" required lay-verify="required|username" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-block">
+                    <input type="email" name="email" required lay-verify="required|email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机</label>
+                <div class="layui-input-block">
+                    <input type="text" name="mobile" required lay-verify="required|phone" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="addUser">提交</button>
+                    <button type="button" class="layui-btn layui-btn-primary" onclick="closeAddUserModal()">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <!-- Edit User Modal -->
+    <div id="editUserModal" class="layui-form" style="display: none; padding: 20px;">
+        <form action="/user/edit" method="post">
+            <input type="hidden" name="id" id="editUserId">
+            <div class="layui-form-item">
+                <label class="layui-form-label">用户名</label>
+                <div class="layui-input-block">
+                    <input type="text" name="username" id="editUsername" required lay-verify="required" placeholder="请输入用户名" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">邮箱</label>
+                <div class="layui-input-block">
+                    <input type="email" name="email" id="editEmail" required lay-verify="required|email" placeholder="请输入邮箱" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <label class="layui-form-label">手机</label>
+                <div class="layui-input-block">
+                    <input type="text" name="mobile" id="editMobile" placeholder="请输入手机号码" autocomplete="off" class="layui-input">
+                </div>
+            </div>
+            <div class="layui-form-item">
+                <div class="layui-input-block">
+                    <button class="layui-btn" lay-submit lay-filter="editUser">提交</button>
+                    <button type="button" class="layui-btn layui-btn-primary" onclick="closeEditUserModal()">取消</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/layui@2.7.2/dist/layui.js" ></script>
+    <script type="text/javascript">
+        layui.use(['layer', 'form'], function(){
+            var layer = layui.layer;
+            var form = layui.form;
+
+            // 自定义验证规则
+            form.verify({
+                username: function(value){
+                    if(value.length < 5){
+                        return '用户名至少得5个字符';
+                    }
+                },
+                phone: [/^1\d{10}$/, '请输入正确的手机号']
+            });
+
+            // Open Add User Modal
+            window.openAddUserModal = function() {
+                layer.open({
+                    type: 1,
+                    title: '添加用户',
+                    content: $('#addUserModal'),
+                    area: ['500px', '400px']
+                });
+            };
+
+            // Close Add User Modal
+            window.closeAddUserModal = function() {
+                layer.closeAll();
+            };
+
+            // Open Edit User Modal
+            window.openEditUserModal = function(id, username, email, mobile) {
+                $('#editUserId').val(id);
+                $('#editUsername').val(username);
+                $('#editEmail').val(email);
+                $('#editMobile').val(mobile);
+                layer.open({
+                    type: 1,
+                    title: '编辑用户',
+                    content: $('#editUserModal'),
+                    area: ['500px', '400px']
+                });
+            };
+
+            // Close Edit User Modal
+            window.closeEditUserModal = function() {
+                layer.closeAll();
+            };
+
+            // Form submission logic for adding user
+            form.on('submit(addUser)', function(data){
+                $.ajax({
+                    type: 'POST',
+                    url: '/user/add',
+                    data: data.field,
+                    success: function(response) {
+                        layer.closeAll();
+                        location.reload(); // Reload the page to reflect changes
+                    },
+                    error: function() {
+                        alert('添加用户失败');
+                    }
+                });
+                return false;
+            });
+
+            // Form submission logic for editing user
+            form.on('submit(editUser)', function(data){
+                $.ajax({
+                    type: 'POST',
+                    url: '/user/edit',
+                    data: data.field,
+                    success: function(response) {
+                        layer.closeAll();
+                        location.reload(); // Reload the page to reflect changes
+                    },
+                    error: function() {
+                        alert('编辑用户失败');
+                    }
+                });
+                return false;
+            });
+
+            // Delete User
+            window.deleteUser = function(userId) {
+                $.post('/user/delete/' + userId, function(response) {
+                    location.reload(); // Reload the page to reflect changes
+                });
+            };
+        });
+    </script>
+</body>
+</html> 
