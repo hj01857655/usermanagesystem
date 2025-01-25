@@ -81,7 +81,7 @@
     </div>
 
     <div class="layui-trans layadmin-user-login-footer">
-        <p>© All Rights Reserved</p>
+        <p>©<a href="https://github.com/hj01857655" target="_blank">hj01857655</a> All Rights Reserved</p>
     </div>
 
 </div>
@@ -102,7 +102,7 @@
             , elemPhone: '#LAY-user-login-cellphone'
             , elemVercode: '#LAY-user-login-vercode'
             , ajax: {
-                url: './res/json/user/sms.js' //实际使用请改成服务端真实接口
+                url: layui.setter.paths.base + '/json/user/sms.js' //实际使用请改成服务端真实接口
             }
         });
 
@@ -112,7 +112,7 @@
 
             //请求接口
             admin.req({
-                url: './res/json/user/forget.js' //实际使用请改成服务端真实接口
+                url: layui.setter.paths.base + '/json/user/forget.js' //实际使用请改成服务端真实接口
                 , data: field
                 , done: function (res) {
                     location.hash = router.href + '/type=resetpass';
@@ -133,7 +133,7 @@
 
             //请求接口
             admin.req({
-                url: './res/json/user/resetpass.js' //实际使用请改成服务端真实接口
+                url: layui.setter.paths.base + '/json/user/resetpass.js' //实际使用请改成服务端真实接口
                 , data: field
                 , done: function (res) {
                     layer.msg('密码已成功重置', {

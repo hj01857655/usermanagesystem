@@ -36,7 +36,7 @@
 
         table.render({
             elem: '#test-table-radio'
-            , url: './res/json/table/user.js'
+            , url: layui.setter.paths.base + '/json/table/user.js'
             , toolbar: '#test-table-radio-toolbarDemo'
             , cols: [[
                 {type: 'radio'}
@@ -62,7 +62,7 @@
                     layer.alert(layui.util.escape(JSON.stringify(data)));
                     break;
             }
-            ;
+
         });
 
     });

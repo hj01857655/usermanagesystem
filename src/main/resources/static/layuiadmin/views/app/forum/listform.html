@@ -3,7 +3,7 @@
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-block">
             <input autocomplete="off" class="layui-input" lay-verify="required" name="poster" placeholder="请输入用户名"
-                   type="text">
+                type="text">
         </div>
     </div>
     <div class="layui-form-item">
@@ -16,7 +16,7 @@
         <label class="layui-form-label">置顶</label>
         <div class="layui-input-block">
             <input lay-filter="switch" lay-skin="switch" lay-text="ON|OFF" lay-verify="required" name="switch"
-                   type="checkbox">
+                type="checkbox">
         </div>
     </div>
     <div class="layui-form-item">
@@ -45,7 +45,7 @@
 
         upload.render({
             elem: '#layuiadmin-upload-list'
-            , url: './res/json/upload/demo.js'
+            , url: layui.setter.paths.base + '/json/upload/demo.js'
             , accept: 'images'
             , method: 'get'
             , acceptMime: 'image/*'

@@ -29,16 +29,16 @@
         table.render({
             elem: '#test-table-initSort'
             , height: 313
-            , url: './res/json/table/user.js'
+            , url: layui.setter.paths.base + '/json/table/user.js'
             , initSort: {
                 field: 'wealth'
                 , type: 'desc'
             }
             , cols: [[
-                {field: 'id', title: 'ID', width: 80}
-                , {field: 'username', title: '用户名', width: 80}
-                , {field: 'score', title: '评分', width: 80, sort: true}
-                , {field: 'wealth', title: '财富', sort: true, minWidth: 150}
+                { field: 'id', title: 'ID', width: 80 }
+                , { field: 'username', title: '用户名', width: 80 }
+                , { field: 'score', title: '评分', width: 80, sort: true }
+                , { field: 'wealth', title: '财富', sort: true, minWidth: 150 }
             ]]
         })
 

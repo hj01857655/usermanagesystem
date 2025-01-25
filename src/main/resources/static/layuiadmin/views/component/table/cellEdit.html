@@ -28,15 +28,15 @@
 
         table.render({
             elem: '#test-table-cellEdit'
-            , url: './res/json/table/demo.js'
+            , url: layui.setter.paths.base + '/json/table/demo.js'
             , cols: [[
-                {type: 'checkbox'}
-                , {field: 'id', title: 'ID', width: 80, sort: true}
-                , {field: 'username', title: '用户名', width: 120, sort: true, edit: 'text'}
-                , {field: 'email', title: '邮箱', edit: 'text', minWidth: 150}
-                , {field: 'sex', title: '性别', width: 80, edit: 'text'}
-                , {field: 'city', title: '城市', edit: 'text', minWidth: 100}
-                , {field: 'experience', title: '积分', sort: true, edit: 'text'}
+                { type: 'checkbox' }
+                , { field: 'id', title: 'ID', width: 80, sort: true }
+                , { field: 'username', title: '用户名', width: 120, sort: true, edit: 'text' }
+                , { field: 'email', title: '邮箱', edit: 'text', minWidth: 150 }
+                , { field: 'sex', title: '性别', width: 80, edit: 'text' }
+                , { field: 'city', title: '城市', edit: 'text', minWidth: 100 }
+                , { field: 'experience', title: '积分', sort: true, edit: 'text' }
             ]]
         })
 

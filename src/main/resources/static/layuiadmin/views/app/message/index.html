@@ -42,7 +42,7 @@
                             标记已读
                         </button>
                         <button class="layui-btn layui-btn-primary layui-btn-sm" data-events="readyAll"
-                                data-type="notice">全部已读
+                            data-type="notice">全部已读
                         </button>
                     </div>
 
@@ -58,7 +58,7 @@
                             标记已读
                         </button>
                         <button class="layui-btn layui-btn-primary layui-btn-sm" data-events="readyAll"
-                                data-type="direct">全部已读
+                            data-type="direct">全部已读
                         </button>
                     </div>
 
@@ -103,12 +103,12 @@
         //全部消息
         table.render({
             elem: '#LAY-app-message-all'
-            , url: './res/json/message/all.js' //模拟接口
+            , url: layui.setter.paths.base + 'json/message/all.js' //模拟接口
             , page: true
             , cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                , {field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle}
-                , {field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
+                { type: 'checkbox', fixed: 'left' }
+                , { field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle }
+                , { field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>' }
             ]]
             , skin: 'line'
         });
@@ -116,12 +116,12 @@
         //通知
         table.render({
             elem: '#LAY-app-message-notice'
-            , url: './res/json/message/notice.js' //模拟接口
+            , url: layui.setter.paths.base + 'json/message/notice.js' //模拟接口
             , page: true
             , cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                , {field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle}
-                , {field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
+                { type: 'checkbox', fixed: 'left' }
+                , { field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle }
+                , { field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>' }
             ]]
             , skin: 'line'
         });
@@ -129,12 +129,12 @@
         //私信
         table.render({
             elem: '#LAY-app-message-direct'
-            , url: './res/json/message/direct.js' //模拟接口
+            , url: layui.setter.paths.base + 'json/message/direct.js' //模拟接口
             , page: true
             , cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                , {field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle}
-                , {field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>'}
+                { type: 'checkbox', fixed: 'left' }
+                , { field: 'title', title: '标题内容', minWidth: 300, templet: tplTitle }
+                , { field: 'time', title: '时间', width: 170, templet: '<div>{{ layui.util.timeAgo(d.time) }}</div>' }
             ]]
             , skin: 'line'
         });

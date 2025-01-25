@@ -43,18 +43,18 @@
         //方法级渲染
         table.render({
             elem: '#test-table-reload'
-            , url: './res/json/table/user.js'
+            , url: layui.setter.paths.base + '/json/table/user.js'
             , cols: [[
-                {checkbox: true, fixed: true}
-                , {field: 'id', title: 'ID', width: 80, sort: true, fixed: true}
-                , {field: 'username', title: '用户名', width: 80}
-                , {field: 'sex', title: '性别', width: 80, sort: true}
-                , {field: 'city', title: '城市', width: 80}
-                , {field: 'sign', title: '签名'}
-                , {field: 'experience', title: '积分', sort: true, width: 80}
-                , {field: 'score', title: '评分', sort: true, width: 80}
-                , {field: 'classify', title: '职业', width: 80}
-                , {field: 'wealth', title: '财富', sort: true, width: 135}
+                { checkbox: true, fixed: true }
+                , { field: 'id', title: 'ID', width: 80, sort: true, fixed: true }
+                , { field: 'username', title: '用户名', width: 80 }
+                , { field: 'sex', title: '性别', width: 80, sort: true }
+                , { field: 'city', title: '城市', width: 80 }
+                , { field: 'sign', title: '签名' }
+                , { field: 'experience', title: '积分', sort: true, width: 80 }
+                , { field: 'score', title: '评分', sort: true, width: 80 }
+                , { field: 'classify', title: '职业', width: 80 }
+                , { field: 'wealth', title: '财富', sort: true, width: 135 }
             ]]
             , page: true
             , height: 315

@@ -162,7 +162,7 @@
                 layer.confirm('您是如何看待前端开发？', {
                     btn: ['重要', '奇葩'] //按钮
                 }, function () {
-                    layer.msg('的确很重要', {icon: 1});
+                    layer.msg('的确很重要', { icon: 1 });
                 }, function () {
                     layer.msg('也可以这样', {
                         time: 20000, //20s后自动关闭
@@ -174,7 +174,7 @@
                 layer.msg('玩命提示中');
             }
             , test4: function () {
-                layer.tips('Hi，我是一个提示', this, {tips: 1});
+                layer.tips('Hi，我是一个提示', this, { tips: 1 });
             }
             , test5: function () {
                 layer.open({
@@ -196,9 +196,9 @@
                 });
             }
             , test7: function () {
-                layer.prompt({title: '输入任何口令，并确认', formType: 1}, function (pass, index) {
+                layer.prompt({ title: '输入任何口令，并确认', formType: 1 }, function (pass, index) {
                     layer.close(index);
-                    layer.prompt({title: '随便写点啥，并确认', formType: 2}, function (text, index) {
+                    layer.prompt({ title: '随便写点啥，并确认', formType: 2 }, function (text, index) {
                         layer.close(index);
                         layer.msg('演示完毕！您的口令：' + pass + '<br>您最后写下了：' + text);
                     });
@@ -217,7 +217,7 @@
                 });
             }
             , test9: function () {
-                $.getJSON('./res/json/layer/photos.js', function (json) {
+                $.getJSON(layui.setter.paths.base + '/json/layer/photos.js', function (json) {
                     layer.photos({
                         photos: json //格式见API文档手册页
                     });
@@ -322,7 +322,7 @@
                 });
             }
             , test21: function () {
-                var ii = layer.load(0, {shade: false});
+                var ii = layer.load(0, { shade: false });
                 setTimeout(function () {
                     layer.close(ii)
                 }, 3000);
@@ -336,7 +336,7 @@
                 }, 3000);
             }
             , test23: function () {
-                layer.prompt({title: '写点什么吧'}, function (value, index) {
+                layer.prompt({ title: '写点什么吧' }, function (value, index) {
                     layer.msg('你写下了：' + value, {
                         icon: 6
                         , shade: 0.9
@@ -347,7 +347,7 @@
             }
 
             , test26: function () {
-                layer.alert('见到你真的很高兴', {icon: 6});
+                layer.alert('见到你真的很高兴', { icon: 6 });
             }
             , test27: function () {
                 layer.msg('一个询问测试？', {
@@ -367,7 +367,7 @@
                 layer.msg('这是最常用的吧');
             }
             , test29: function () {
-                layer.msg('并不十分开心。。', {icon: 5});
+                layer.msg('并不十分开心。。', { icon: 5 });
             }
             , test30: function () {
                 layer.msg('玩命卖萌中', function () {
@@ -376,8 +376,8 @@
             }
             , test31: function () {
                 layer.confirm('真的删除吗？', function () {
-                    layer.msg('正在删除', {icon: 16}, function () {
-                        layer.msg('成功删除', {icon: 1})
+                    layer.msg('正在删除', { icon: 16 }, function () {
+                        layer.msg('成功删除', { icon: 1 })
                     });
                 });
             }
@@ -453,7 +453,7 @@
                 });
             }
             , test45: function () {
-                layer.tips('不会销毁之前的', this, {tipsMore: true});
+                layer.tips('不会销毁之前的', this, { tipsMore: true });
             }
 
             , test47: function () {

@@ -29,20 +29,20 @@
 
         table.render({
             elem: '#test-table-fixed'
-            , url: './res/json/table/user.js'
+            , url: layui.setter.paths.base + '/json/table/user.js'
             , width: admin.screen() > 1 ? 892 : ''
             , height: 332
             , cols: [[
-                {type: 'checkbox', fixed: 'left'}
-                , {field: 'id', width: 80, title: 'ID', sort: true, fixed: 'left'}
-                , {field: 'username', width: 80, title: '用户名'}
-                , {field: 'sex', width: 80, title: '性别', sort: true}
-                , {field: 'city', width: 80, title: '城市'}
-                , {field: 'sign', width: 219, title: '签名'}
-                , {field: 'experience', width: 80, title: '积分', sort: true}
-                , {field: 'score', width: 80, title: '评分', sort: true}
-                , {field: 'classify', width: 80, title: '职业'}
-                , {field: 'wealth', width: 120, title: '财富', sort: true, fixed: 'right'}
+                { type: 'checkbox', fixed: 'left' }
+                , { field: 'id', width: 80, title: 'ID', sort: true, fixed: 'left' }
+                , { field: 'username', width: 80, title: '用户名' }
+                , { field: 'sex', width: 80, title: '性别', sort: true }
+                , { field: 'city', width: 80, title: '城市' }
+                , { field: 'sign', width: 219, title: '签名' }
+                , { field: 'experience', width: 80, title: '积分', sort: true }
+                , { field: 'score', width: 80, title: '评分', sort: true }
+                , { field: 'classify', width: 80, title: '职业' }
+                , { field: 'wealth', width: 120, title: '财富', sort: true, fixed: 'right' }
             ]]
             , page: true
         });

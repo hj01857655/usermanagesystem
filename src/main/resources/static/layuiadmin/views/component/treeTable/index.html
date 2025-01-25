@@ -45,7 +45,7 @@
         // 渲染
         var inst = treeTable.render({
             elem: '#test-treeTable',
-            url: './res/json/treeTable/demo-1.json', // 此处为静态模拟数据，实际使用时需换成真实接口
+            url: layui.setter.paths.base + '/json/treeTable/demo-1.json', // 此处为静态模拟数据，实际使用时需换成真实接口
             tree: {
                 /*
                 // 异步加载子节点
@@ -59,14 +59,14 @@
             height: 'full-200',
             toolbar: '#TPL-treeTable-demo',
             cols: [[
-                {type: 'checkbox', fixed: 'left'},
-                {field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left'},
-                {field: 'name', title: '用户名', width: 180, fixed: 'left'},
-                {field: 'experience', title: '积分', width: 90, sort: true},
-                {field: 'sex', title: '性别', width: 80, sort: true},
-                {field: 'score', title: '评分', width: 80, sort: true},
-                {field: 'city', title: '城市'},
-                {fixed: "right", title: "操作", width: 181, align: "center", toolbar: "#TPL-treeTable-demo-tools"}
+                { type: 'checkbox', fixed: 'left' },
+                { field: 'id', title: 'ID', width: 80, sort: true, fixed: 'left' },
+                { field: 'name', title: '用户名', width: 180, fixed: 'left' },
+                { field: 'experience', title: '积分', width: 90, sort: true },
+                { field: 'sex', title: '性别', width: 80, sort: true },
+                { field: 'score', title: '评分', width: 80, sort: true },
+                { field: 'city', title: '城市' },
+                { fixed: "right", title: "操作", width: 181, align: "center", toolbar: "#TPL-treeTable-demo-tools" }
             ]],
             page: true
         });
@@ -91,7 +91,7 @@
             if (layEvent === "detail") {
                 layer.msg("查看操作：" + trData.name);
             } else if (layEvent === "addChild") {
-                var data = {id: Date.now(), name: "新节点"};
+                var data = { id: Date.now(), name: "新节点" };
                 var newNode2 = treeTable.addNodes(tableId, {
                     parentIndex: trData["LAY_DATA_INDEX"],
                     index: -1,
@@ -125,7 +125,7 @@
                                 value: trData.experience,
                                 title: "输入新的积分"
                             }, function (value, index) {
-                                obj.update({experience: value}); // 等效如下
+                                obj.update({ experience: value }); // 等效如下
                                 // treeTable.updateNode(tableId, trElem.attr('data-index'), {experience: value});
                                 layer.close(index);
                             });
