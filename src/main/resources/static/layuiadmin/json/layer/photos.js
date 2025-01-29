@@ -1,22 +1,10 @@
 {
-    "code"
-:
-    0,
-        "msg"
-:
-    "",
-        "title"
-:
-    "Photos Demo",
-        "id"
-:
-    8,
-        "start"
-:
-    0,
-        "data"
-:
-    [
+    "code": 0,
+    "msg": "",
+    "title": "Photos Demo",
+    "id": 8,
+    "start": 0,
+    "data": [
         {
             "alt": "layer",
             "pid": 109,
